@@ -3,7 +3,7 @@
     "m_SelectedPackage": {
         "deviceId": "emulator-5554",
         "name": "ca.georgebrown2014.f2021.lab1",
-        "processId": 3994,
+        "processId": 3177,
         "exited": false
     },
     "m_SelectedPriority": 0,
@@ -18,6 +18,12 @@
             "deviceId": "emulator-5554",
             "name": "ca.georgebrown2014.f2021.lab1",
             "processId": 3994,
+            "exited": false
+        },
+        {
+            "deviceId": "emulator-5554",
+            "name": "ca.georgebrown2014.f2021.lab1",
+            "processId": 3177,
             "exited": false
         }
     ],
