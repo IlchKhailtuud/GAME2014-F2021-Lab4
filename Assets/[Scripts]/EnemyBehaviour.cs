@@ -1,28 +1,43 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Serialization;
+using Random = UnityEngine.Random;
 
 public class EnemyBehaviour : MonoBehaviour
 {
     [Header("Enemy Movement")] 
     public Bounds movementBounds;
     public Bounds startingRange;
+
+    [Header("Bulltes")] 
+    public Transform bulletSpawn;
+    public int frameDelay;
+    private BulletManager bulletManager;
+    
     private float startingPoint;
     private float randomSpeed;
     
-    // Start is called before the first frame update
     void Start()
     {
         randomSpeed = Random.Range(movementBounds.min, movementBounds.max);
         startingPoint = Random.Range(startingRange.min, startingRange.max);
+        bulletManager = GameObject.FindObjectOfType<BulletManager>();
     }
-
-    // Update is called once per frame
+    
     void Update()
     {
         transform.position = new Vector2(Mathf.PingPong(Time.time, randomSpeed) 
                                          + startingPoint, transform.position.y);
+    }
+
+    private void FixedUpdate()
+    {
+        if (Time.frameCount % frameDelay == 0)
+        {
+            bulletManager.GetBullet(bulletSpawn.position);
+        }
     }
 }

@@ -10,6 +10,13 @@ public class BulletBehaviour : MonoBehaviour
     public float speed;
     public Bounds bulletBounds;
     
+    private BulletManager bulletManager;
+
+    private void Start()
+    {
+        bulletManager = GameObject.FindObjectOfType<BulletManager>();
+    }
+
     private void FixedUpdate()
     {
         Move();
@@ -25,7 +32,7 @@ public class BulletBehaviour : MonoBehaviour
     {
         if (transform.position.y < bulletBounds.max)
         {
-            Destroy(this.gameObject);
+            bulletManager.ReturnBullet(this.gameObject);
         }
     }
 }
