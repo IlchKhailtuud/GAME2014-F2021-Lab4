@@ -134,6 +134,8 @@ MonoBehaviour:
   bounds:
     min: -1.92
     max: 1.92
+  bulletSpawn: {fileID: 3231421639751558641}
+  frameDelay: 5
 --- !u!50 &4926899431730564057
 Rigidbody2D:
   serializedVersion: 4

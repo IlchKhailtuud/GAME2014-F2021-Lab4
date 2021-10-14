@@ -10,6 +10,7 @@ public class BulletBehaviour : MonoBehaviour
     public float speed;
     public Bounds bulletBounds;
     public BulletDirection direction;
+    public BulletType type;
     
     private BulletManager bulletManager;
     private Vector3 bulletVelocity;
@@ -51,12 +52,12 @@ public class BulletBehaviour : MonoBehaviour
     {
         if (transform.position.y < bulletBounds.max)
         {
-            bulletManager.ReturnBullet(this.gameObject);
+            bulletManager.ReturnBullet(this.gameObject, type);
         }
         
         if (transform.position.y > bulletBounds.min)
         {
-            bulletManager.ReturnBullet(this.gameObject);
+            bulletManager.ReturnBullet(this.gameObject, type);
         }
     }
 }
