@@ -10,9 +10,7 @@ public class BulletBehaviour : MonoBehaviour
     public Bounds bulletBounds;
     
     public BulletType type;
-    //public float speed;
-    //public BulletDirection direction;
-    
+
     private void Start()
     {
         

@@ -6,6 +6,7 @@ using UnityEngine;
 public class PlayerBehaviour : MonoBehaviour
 {
     [Header("Player Movement")] 
+    
     [Range(0.0f, 200.0f)]
     public float horizontalForce;
     [Range(0.0f  , 1.0f)]
