@@ -15,8 +15,7 @@ public class EnemyBehaviour : MonoBehaviour
     [Header("Bulltes")] 
     public Transform bulletSpawn;
     public int frameDelay;
-    private BulletManager bulletManager;
-    
+
     private float startingPoint;
     private float randomSpeed;
     
@@ -24,7 +23,6 @@ public class EnemyBehaviour : MonoBehaviour
     {
         randomSpeed = Random.Range(movementBounds.min, movementBounds.max);
         startingPoint = Random.Range(startingRange.min, startingRange.max);
-        bulletManager = GameObject.FindObjectOfType<BulletManager>();
     }
     
     void Update()
@@ -37,7 +35,7 @@ public class EnemyBehaviour : MonoBehaviour
     {
         if (Time.frameCount % frameDelay == 0)
         {
-            bulletManager.GetBullet(bulletSpawn.position);
+            BulletManager.Instance().GetBullet(bulletSpawn.position);
         }
     }
 }

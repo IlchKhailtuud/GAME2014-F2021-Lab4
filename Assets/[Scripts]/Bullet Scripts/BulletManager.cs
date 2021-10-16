@@ -6,21 +6,33 @@ using UnityEngine;
 using UnityEngine.PlayerLoop;
 using UnityEngine.Serialization;
 
-[System.Serializable]
-public class BulletManager : MonoBehaviour
+public class BulletManager
 {
+    private static BulletManager instance = null;
+
+    private BulletManager()
+    {
+        Initialize();
+    }
+
+    public static BulletManager Instance()
+    {
+        if (instance == null)
+        {
+            instance = new BulletManager();
+        }
+        return instance;
+    }
+
     public Queue<GameObject> enemyBulletPool;
     public Queue<GameObject> playerBulletPool;
     public int enemyBulletNumber;
     public int playerBulletNumber;
     
-    private BulletFactory factory;
-    private void Start()
+    private void Initialize()
     {
         enemyBulletPool = new Queue<GameObject>();
         playerBulletPool = new Queue<GameObject>();
-        factory = GetComponent<BulletFactory>();
-        //BuildBulletPool();
     }
 
     private void BuildBulletPool()
@@ -33,7 +45,7 @@ public class BulletManager : MonoBehaviour
 
     private void AddBullet(BulletType type = BulletType.ENEMY)
     {
-        var temp_bullet = factory.createBullet(type);
+        var temp_bullet = BulletFactory.Instance().createBullet(type);
 
         switch (type)
         {
